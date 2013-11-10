@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/child-window-style.css" rel="stylesheet" media="screen">
+        <script src="scripts/jquery-1.7.2.min.js"></script>
+        <script src="scripts/knockout-2.1.0.js"></script>
+        <script src="scripts/jquery-ui-1.9.2.js"></script>
+        <script src="scripts/jquery.simplemodal-1.4.3.js"></script>
+        
+        <script src="scripts/entities.js" type="text/javascript"></script>
+        <script src="scripts/photo-viewer.js" type="text/javascript"></script>
+        <script src="scripts/index-page.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(document).ready( function () {
+                var pageComponent = new Page();
+	            var images1 = [{ Id:1, Link:"images/2.jpg"} , {Id:2, Link:"images/3.jpg"} , {Id:3, Link:"images/4.jpg" }];
+	            pageComponent.init(images1);
+	            ko.applyBindings(pageComponent, document.getElementById("data-container"));
+            });
+        </script>
+
+        <title>Photo Viewer</title>
+    </head>
+    <body>
+        <div id="data-container" class="data-container" >
+            <h3> Here the images are shown in separate collections. </h3>
+            <div data-bind="foreach: ImageCollection1">
+                <img style="width:200px; height:200px; cursor:pointer;" data-bind=" attr: { 'src': Model().Link }, click: $parent.OpenGallery"/>
+            </div>
+        </div>
+    </body>
+</html>
