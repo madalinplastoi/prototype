@@ -5,3 +5,14 @@
 /*.suo
 
 /*.sln
+
+
+/LawTemplate/.idea
+/LawTemplate/node_modules
+/LawTemplate/build
+/LawTemplate/app/AppNavigation.js
+/LawTemplate/app/AppNavigation.js.map
+/LawTemplate/app/AppUtils.js
+/LawTemplate/app/AppUtils.js.map
+/LawTemplate/app/models/AppModels.js
+/LawTemplate/app/models/AppModels.js.map
