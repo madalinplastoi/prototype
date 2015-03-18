@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+
+    <!-- build:css sources/css/main.min.css -->
+    <link rel='stylesheet' href='/stylesheets/main.css' />
+    <!-- /build -->
+
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+  </body>
+
+  <!-- build:js sources/js/main.min.js -->
+  <script type="application/javascript" src="app/main/Boot.js"></script>
+  <script type="application/javascript" src="app/admin/Boot.js"></script>
+  <!-- /build -->
+
+  <script type="application/javascript">
+    $(document).ready(function(){
+      debugger;
+    });
+  </script>
+
+</html>
