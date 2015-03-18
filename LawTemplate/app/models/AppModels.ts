@@ -7,7 +7,7 @@ module  LawTemplate20152301 {
         private content:string;
 
         constructor() {
-            this.content = "This is the home section";
+            this.content = "Home section";
         }
     }
 
@@ -15,7 +15,7 @@ module  LawTemplate20152301 {
         private content:string;
 
         constructor() {
-            this.content = "This is the about section";
+            this.content = "About section";
         }
     }
 
@@ -23,7 +23,7 @@ module  LawTemplate20152301 {
         private content:string;
 
         constructor() {
-            this.content = "This is the services section";
+            this.content = "Services section";
         }
     }
 
@@ -31,7 +31,7 @@ module  LawTemplate20152301 {
         private content:string;
 
         constructor() {
-            this.content = "This is the contact section";
+            this.content = "Contact section";
         }
     }
 }

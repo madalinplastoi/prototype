@@ -98,11 +98,11 @@ module  LawTemplate20152301 {
             if ($('#' + itemId).length > 0) {
                 for (var i in this.Items()) {
                     if (this.Items()[i].id == itemId) {
-                        $('#' + this.Items()[i].id).addClass('menu-item-selected');
+                        $('#' + this.Items()[i].id).addClass('active');
                         this.Selected(this.Items()[i]);
                     }
                     else {
-                        $('#' + this.Items()[i].id).removeClass('menu-item-selected');
+                        $('#' + this.Items()[i].id).removeClass('active');
                     }
                 }
             }

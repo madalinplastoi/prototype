@@ -65,6 +65,18 @@ module.exports = function( grunt ) {
                 }
             },
 
+            cssmin: {
+                target: {
+                    files: [{
+                        expand: true,
+                        cwd: 'css',
+                        src: ['site.css'],
+                        dest: 'build/css',
+                        ext: '.min.css'
+                    }]
+                }
+            },
+
             uglify: {
                 options: {
                     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n' +
@@ -94,10 +106,10 @@ module.exports = function( grunt ) {
 
             watch: {
                 build: {
-                    files: ['build/app/*.js', 'build/app/**/*.js', 'build/index.html']
+                    files: ['build/app/*.js', 'build/app/**/*.js', 'build/index.html', 'build/css/site.css']
                 },
                 dev: {
-                    files: ['app/*.js', 'build/app/**/*.js', 'index.html'],
+                    files: ['app/*.js', 'build/app/**/*.js', 'index.html', 'css/site.cssnpm install'],
                     options: {
                         livereload: true
                     }
@@ -110,6 +122,7 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-processhtml');
@@ -118,7 +131,7 @@ module.exports = function( grunt ) {
 
     grunt.registerTask('default', ['connect:dev:livereload', 'open:dev','watch:dev']);
 
-    grunt.registerTask('build', ['clean', 'copy', 'uglify', 'processhtml', 'connect:build', 'open:build', 'watch:build']);
+    grunt.registerTask('build', ['clean', 'copy', 'cssmin', 'uglify', 'processhtml', 'connect:build', 'open:build', 'watch:build']);
 
     grunt.registerTask('clear', ['clean']);
 
