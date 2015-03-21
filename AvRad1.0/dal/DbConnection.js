@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var WebConfig = require('./../WebConfig');
+var WebConfig = require('./../web/WebConfig');
 
 var connectionString = WebConfig.DATABASE_CONNECTION_STRING;
 mongoose.connect(connectionString);

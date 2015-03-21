@@ -2,13 +2,13 @@ var domain = {};
 (function (rootNamespace) {
     var User = function () {
         function User() {
-            this.Id = '';
-            this.Name = '';
-            this.Email = '';
-            this.Username = '';
-            this.Password = '';
-            this.RememberMe = false;
-            this.LastAccessOn = null;
+            this._id = '';
+            this.name = '';
+            this.email = '';
+            this.username = '';
+            this.password = '';
+            this.rememberMe = '';
+            this.lastAccessOn = new Date();
 
             return this;
         }

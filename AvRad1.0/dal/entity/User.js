@@ -13,6 +13,6 @@ var _user = new Schema({
     lastAccessOn: {type: Date, default: Date.now}
 },{ collection: 'users' });
 
-var User = mongoose.model('User', _user);
+var UserModel = mongoose.model('User', _user);
 
-exports.User = User;
+exports.UserModel = UserModel;

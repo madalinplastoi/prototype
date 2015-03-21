@@ -1,12 +1,12 @@
 declare module 'domain' {
     class User {
-        public Id:string;
-        public Name:string;
-        public Email:string;
-        public Username:string;
-        public Password:string;
-        public RememberMe:boolean;
-        public LastAccessOn:string;
+        public _id:string;
+        public name:string;
+        public email:string;
+        public username:string;
+        public password:string;
+        public rememberMe:boolean;
+        public lastAccessOn:Date;
 
         constructor();
     }

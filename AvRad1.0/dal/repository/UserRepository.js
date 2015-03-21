@@ -1,19 +1,31 @@
-var UserModel = require('./../entity/UserModel');
-var mongoose = require('mongoose');
+var User = require('./../entity/User');
+var Q = require('q');
 
-exports.insertUser = function(user, callback) {
-    var user1 = new UserModel.User();
+exports.insertUserPromise = function (user) {
+    return Q.fcall(function () {
+        var deferred = Q.defer();
 
-    user1._id = new mongoose.Types.ObjectId();
-    user1.name = 'bibi';
-    user1.email = 'bibi@aol.com';
-    user1.username = 'bibi_mic';
-    user1.password = 'mi-e somn';
-    user1.rememberMe = true;
+        if (user == null || user === undefined) deferred.reject(new Error('User cannot be null.'));
+        else user.save(function (err, result) {
+            if (err) deferred.reject(new Error(err));
+            else deferred.resolve(result);
+        });
 
-    user1.save(function (err, user1) {
-        if (err)
-            return console.error(err);
-        callback(user1);
+        return deferred.promise;
+    });
+}
+
+exports.getByLoginPromise = function(username, password) {
+    return Q.fcall(function () {
+        var deferred = Q.defer();
+
+        if (username == null || username === undefined) deferred.reject(new Error('Username cannot be null.'));
+        else if (password == null || password === undefined) deferred.reject(new Error('Password cannot be null.'));
+        else User.UserModel.findOne({'username': username, 'password': password},function (err, result) {
+            if (err) deferred.reject(new Error(err));
+            else deferred.resolve(result);
+        });
+
+        return deferred.promise;
     });
 }
