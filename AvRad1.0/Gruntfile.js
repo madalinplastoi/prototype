@@ -74,7 +74,7 @@ module.exports = function (grunt) {
                     paths.main + '*.ts',
                     paths.main + '**/*.ts',
 
-                    paths.utils + '*.ts',
+                    paths.utils + '*.ts'
                 ]
             }
         },

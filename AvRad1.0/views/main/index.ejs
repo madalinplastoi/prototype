@@ -2,15 +2,116 @@
 <html>
   <head>
     <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel='stylesheet' href='/stylesheets/layout.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/jquery.carousel.css' />
     <!-- build:css sources/css/main.min.css -->
-    <link rel='stylesheet' href='/stylesheets/main.css' />
+    <link rel='stylesheet' href='/stylesheets/corporate.css' />
     <!-- /build -->
+    <style type="text/css">
+      #nav-menu li{
+        float:left;
+      }
 
+      #nav-menu li span {
+        height:50px;
+        display: inline-block;
+        text-align: center;
+      }
+
+      #nav-menu li span a {
+        height:50px;
+        overflow: hidden;
+        text-decoration: none;
+        display: table;
+      }
+    </style>
+
+    <!--[if !IE 7]>
+    <style type="text/css">
+        #wrapper {display:table;height:100%}
+    </style>
+    <![endif]-->
+
+    <script type="text/javascript" src="/lib/js/jquery/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/lib/js/jquery/jquery.carousel.min.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div id="upper"></div>
+    <div id="wrapper">
+      <div id="main" class="container">
+        <header class="row">
+          <div class="navbar-header">
+            <a href="#/home">
+              <img width="270" height="279" alt="logo" src="/images/logo.png"/>
+            </a>
+          </div>
+          <div class="col-xs-12 col-md-8 pull-right">
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Despre</a></li>
+                <li><a href="#">Servicii</a></li>
+                <li><a href="#">Resurse</a></li>
+                <li><a href="#">Clienti</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+
+              <!--form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Cauta...">
+                </div>
+              </form-->
+            </div>
+            <div>
+              <h1>Realize Your Constitutional Right for Qualified Legal Help</h1>
+            </div>
+
+            <!--div class="col-md-3">
+              <div>
+                <img width="270" height="279" alt="logo" src="/images/logo.png"/>
+              </div>
+            </div>
+            <div class="com-md-9">
+              <div class="row">
+                <ul id="nav-menu">
+                  <li><span><a href="#">Despre</a></span></li>
+                  <li><span><a href="#">Servicii</a></span></li>
+                  <li><span><a href="#">Noutati</a></span></li>
+                  <li><span><a href="#">Contact</a></span></li>
+                </ul>
+              </div>
+              <div class="row">
+                <h1>Realize Your Constitutional Right for Qualified Legal Help</h1>
+              </div>
+            </div-->
+          </div>
+        </header>
+        <div id="carousel-wrapper" class="row text-center">
+          <div class="jcarousel" style="height:300px;">
+            <ul>
+              <li><img width="800" height="600" alt="c1" src="/images/c1.jpg"/></li>
+              <li><img width="800" height="600" alt="c2" src="/images/c2.jpg"/></li>
+              <li><img width="800" height="600" alt="c3" src="/images/c3.jpg"/></li>
+            </ul>
+          </div>
+          <p class="jcarousel-pagination">
+            <a href="#1">1</a>
+            <a href="#2">2</a>
+            <a href="#3">3</a>
+          </p>
+        </div>
+        <div id="applicationHost" class="row">
+           <strong>Page specific content</strong>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted">Footer section; aici pot aparea informatii gen: ©  2015 | PRIVACY POLICY | contacte de FB, Linkedin, G+, etc.</p>
+      </div>
+    </div>
   </body>
 
   <!-- build:js sources/js/main.min.js -->
@@ -19,8 +120,17 @@
   <!-- /build -->
 
   <script type="application/javascript">
-    $(document).ready(function(){
-      debugger;
+    $(document).ready(function() {
+      $('.jcarousel').jcarousel();
+      $('.jcarousel-pagination')
+              .on('jcarouselpagination:active', 'a', function () {
+                $(this).addClass('active');
+              })
+              .on('jcarouselpagination:inactive', 'a', function () {
+                $(this).removeClass('active');
+              })
+              .jcarouselPagination();
+
     });
   </script>
 
